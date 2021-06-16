@@ -4,7 +4,7 @@
 const { Client, MessageEmbed, Collection } = require('discord.js');
 const client = global.client = new Client({fetchAllMembers: true});
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://anem123a:anem123a@cluster0.ocmpm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('', {useNewUrlParser: true, useUnifiedTopology: true});
 const moment = require('moment');
 const Penalty = require('./Models/Penalty.js');
 require("moment-duration-format")
@@ -731,19 +731,6 @@ Array.prototype.chunk = function(chunk_size) {
   }
   return tempArray;
 };
-
-
-
-
-
-client.on('messageDelete', (message , member) => {
-     if(message.author.bot) return;
-  db.set(`snipe.mesaj.${message.guild.id}.${message.channel.id}`, message.content)
-  db.set(`snipe.id.${message.guild.id}.${message.channel.id}`, message.author.id)
-})
-
-
-
 
 
 
